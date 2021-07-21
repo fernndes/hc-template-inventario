@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { useHistory } from 'react-router-dom'
+import { toast } from 'react-toastify'
 import './styles.css'
 
 export default function ClientScreen() {
@@ -16,7 +16,6 @@ export default function ClientScreen() {
         }
     }, [])
 
-    let history = useHistory()
     function handleSubmit(e) {
         e.preventDefault()
 
@@ -28,7 +27,10 @@ export default function ClientScreen() {
 
         localStorage.setItem('clients', newClients)
 
-        history.push('/')
+        setStore(JSON.parse(newClients))
+
+        toast.success('Cliente cadastrado com sucesso!')
+
     }
     return (
         <div className="container">

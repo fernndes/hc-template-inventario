@@ -7,6 +7,10 @@
     font-family: 'Quicksand', sans-serif;
 }
 
+body {
+    overflow: hidden;
+}
+
 .App {
     display: flex;
     height: 100vh;

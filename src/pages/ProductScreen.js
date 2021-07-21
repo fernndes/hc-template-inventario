@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { useHistory } from 'react-router-dom'
+import { toast } from 'react-toastify'
 import './styles.css'
 
 export default function ClientScreen() {
@@ -16,7 +16,6 @@ export default function ClientScreen() {
         }
     }, [])
 
-    let history = useHistory()
     function handleSubmit(e) {
         e.preventDefault()
 
@@ -24,10 +23,13 @@ export default function ClientScreen() {
             type, price, category, stock
         }
 
-        let newClients = JSON.stringify([...store || [], data])
+        let newProducts = JSON.stringify([...store || [], data])
 
-        localStorage.setItem('products', newClients)
-        history.push('/')
+        localStorage.setItem('products', newProducts)
+
+        setStore(JSON.parse(newProducts))
+
+        toast.success('Produto cadastrado com sucesso!')
     }
     return (
         <div className="container">

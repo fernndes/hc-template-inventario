@@ -4,6 +4,7 @@ import {
     Switch,
     Route
 } from "react-router-dom";
+import { ToastContainer } from 'react-toastify'
 
 // Components
 import SideBar from './components/SideBar'
@@ -30,6 +31,7 @@ export default function Routes() {
                     </Route>
                 </Switch>
             </div>
+            <ToastContainer autoClose={3000} className="toast-container" />
         </BrowserRouter>
     )
 }
